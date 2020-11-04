@@ -24,12 +24,14 @@ func CreatePaste(author string, content string, language string, password string
 		return nil, errors.New("Malformed author or content.")
 	}
 
+	timeNow := time.Now()
+
 	if password == "" {
 		return &Paste{
 			Author:            author,
 			Content:           content,
-			CreationDate:      time.Now(),
-			EditDate:          time.Now(),
+			CreationDate:      timeNow,
+			EditDate:          timeNow,
 			Language:          language,
 			PasswordProtected: false,
 		}, nil
@@ -59,6 +61,7 @@ func CreatePaste(author string, content string, language string, password string
 
 }
 
-func (p *Paste) GetTimeString() string {
-	return p.CreationDate.Format("Wed Feb 25 11:06:39 PST 2015")
+func (p *Paste) GetCreationTimeString() string {
+	return p.CreationDate.Format("2006-01-02 15:04:05")
+
 }

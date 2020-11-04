@@ -52,14 +52,14 @@ func main() {
 
 		if err != nil {
 			log.Println(err)
-			w.WriteHeader(http.StatusNotFound)
+			http.Redirect(w, r, "/", 301)
 			return
 		}
 
 		paste, err := pasteDB.GetPaste(pasteID)
 		if err != nil {
 			log.Println(err)
-			w.WriteHeader(http.StatusNotFound)
+			http.Redirect(w, r, "/", 301)
 			return
 		}
 

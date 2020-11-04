@@ -45,9 +45,11 @@
           <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
           <script>hljs.initHighlightingOnLoad();</script>
           
-          <div style="padding-left:16px">
-            <h2 style="text-align: center;">Created on </h2>
-            <pre><code>{{.Content}}</code></pre>
+          <div style="padding-left:16px; ">
+            <div>
+              <h2>Created on {{.GetCreationTimeString}}</h2>
+              <pre style="width: 1050px;"><code>{{.Content}}</code></pre>
+            </div>
           </div>
 
 
